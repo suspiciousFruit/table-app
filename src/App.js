@@ -11,6 +11,7 @@ function App() {
     return { ...item, id: i };
   });
 
+  
   return <Table initItems={idItems} />;
 }
 

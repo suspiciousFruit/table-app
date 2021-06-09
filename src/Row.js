@@ -22,3 +22,4 @@ const Row = ({ item, index, onChooseHandler }) => {
 };
 
 export default Row;
+
