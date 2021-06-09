@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Table from './Table'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const items = [
+    { name: "name1", type: "main", color: "#f4f4f4" },
+    { name: "name2", type: "side", color: "#f8f8f8" }
+  ];
+
+  const idItems = items.map((item, i) => {
+    return { ...item, id: i };
+  });
+
+  return <Table initItems={idItems} />;
 }
 
 export default App;

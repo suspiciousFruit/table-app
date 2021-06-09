@@ -1,0 +1,28 @@
+.cell__div {
+    margin: 0;
+    padding: 0.3em;
+  
+    border: 1px solid black;
+    width: 4em;
+    height: 2em;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .cell__input {
+    width: 4em;
+    padding: 0.3em;
+    border: 1px solid black;
+    border-radius: 0;
+    display: inline-block;
+    height: 2em;
+  }
+
+  .cell__input__container {
+    display: inline-block;
+    height: 2em;
+    width: 4em;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
