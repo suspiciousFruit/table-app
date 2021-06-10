@@ -2,15 +2,21 @@ import React from 'react'
 import {useState} from 'react'
 import './Cell.css'
 
-export default function Cell({ initValue, inputType }) {
+export default function Cell({ initValue, inputType, columnName, onDataChange }) {
     const [isRead, setIsRead] = useState(true);
     const [value, setValue] = useState(initValue);
   
     const clickHandler = () => setIsRead(!isRead);
     const keyPressHandler = (event) => {
-      if (event.key === "Enter") setIsRead(!isRead);
+      if (event.key === "Enter") {
+        setIsRead(!isRead)
+        onDataChange(columnName, value);
+      }
     };
-    const blurHandler = () => setIsRead(!isRead);
+    const blurHandler = () => {
+      setIsRead(!isRead);
+      onDataChange(columnName, value);
+    }
     const onChangeHandler = (event) => setValue(event.target.value);
   
     if (isRead)

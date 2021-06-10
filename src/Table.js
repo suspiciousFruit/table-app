@@ -50,6 +50,12 @@ const Table = ({ initItems }) => {
       setCurId(nItems.curId);
     };
   
+    const onDataChangeHandler = (changes, index) => {
+      const nItems = [...items];
+      nItems[index] = { ...nItems[index], ...changes };
+      setItems(nItems);
+    };
+
     return (
       <div className="table">
         <div>
@@ -64,6 +70,7 @@ const Table = ({ initItems }) => {
               index={index}
               onChooseHandler={onChooseHandler}
               key={item.id}
+              onDataChange={onDataChangeHandler}
             />
           );
         })}
