@@ -56,6 +56,24 @@ const Table = ({ initItems }) => {
       setItems(nItems);
     };
 
+      ///// Drag and drop
+    const [curIndex, setCurIndex] = useState(null)
+
+    const onDragStartHandler = (e, index) => setCurIndex(index)
+  
+    const onDragEndHandler = (e, index) => {
+      e.preventDefault();
+
+      const nItems = [...items]
+      const temp = nItems[index]
+      nItems[index] = nItems[curIndex]
+      nItems[curIndex] = temp
+      setItems(nItems)
+      setCurIndex(null)
+    };
+  
+    const onDragOverHandler = (e) => e.preventDefault()
+
     return (
       <div className="table">
         <div>
@@ -65,13 +83,20 @@ const Table = ({ initItems }) => {
         </div>
         {items.map((item, index) => {
           return (
-            <Row
-              item={item}
-              index={index}
-              onChooseHandler={onChooseHandler}
-              key={item.id}
-              onDataChange={onDataChangeHandler}
-            />
+            <div
+              draggable={true}
+              onDragStart={e => onDragStartHandler(e, index)}
+              onDragOver={e => onDragOverHandler(e)}
+              onDrop={e => onDragEndHandler(e, index)}
+            >
+              <Row
+                item={item}
+                index={index}
+                onChooseHandler={onChooseHandler}
+                key={item.id}
+                onDataChange={onDataChangeHandler}
+              />
+            </div>
           );
         })}
         <button onClick={onAddHandler}>Add line</button>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Table from './Table'
+import './index.css'
 
 function App() {
   const items = [

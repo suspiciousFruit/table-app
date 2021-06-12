@@ -37,7 +37,11 @@ const Row = ({ item, index, onChooseHandler, onDataChange }) => {
         onDataChange={onDataChangeHandler}
         columnName="color"
       />
-        <input onChange={changeHandler} type="checkbox" />
+        <input
+          className="row__checkbox"
+          onChange={changeHandler}
+          type="checkbox"
+        />
       </div>
     );
 };
